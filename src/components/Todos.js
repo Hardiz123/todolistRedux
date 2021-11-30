@@ -20,11 +20,10 @@ const Todos = () => {
         if (todo !== '') {
         dispatch(addNewTodo(todo));
         setTodo(''); 
-    }
+        }
     }
 
     const editTaskfunc = (id,task) => {
-
         setEditTask(true);
         setTodo(task);
         setTaskId(id);
@@ -44,6 +43,7 @@ const Todos = () => {
         }
         dispatch(deleteTodo(id))
     }
+
     const getButton = () => {
         
         if (editTask) {
