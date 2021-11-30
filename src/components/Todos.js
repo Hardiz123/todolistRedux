@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewTodo, deleteTodo, editTodo } from "../actions/actions";
 import  Todo from "./Todo";
+import '../css/todosStyle.css';
 const Todos = () => {
 
     const dispatch = useDispatch();
@@ -16,11 +17,14 @@ const Todos = () => {
     }
 
     const addTODO = () => {
+        if (todo !== '') {
         dispatch(addNewTodo(todo));
-        setTodo('');
+        setTodo(''); 
+    }
     }
 
     const editTaskfunc = (id,task) => {
+
         setEditTask(true);
         setTodo(task);
         setTaskId(id);
@@ -33,6 +37,13 @@ const Todos = () => {
         setEditTask(false);
     }
 
+    const deleteTask = (id) => {
+        if (editTask) {
+            setTodo('');
+            setEditTask(false);
+        }
+        dispatch(deleteTodo(id))
+    }
     const getButton = () => {
         
         if (editTask) {
@@ -48,13 +59,11 @@ const Todos = () => {
             <input type="text" placeholder='Task' value={todo} onChange={(e) => handleChange(e)} className="todo-input" />
 
             {getButton()}
-            <ul>
             {
                 state.map((item) => {
-                    return <Todo key={item.id} editTaskfunc={(id,task) => editTaskfunc(id,task)} task ={item.item} id={item.id} deleteTask = {() => dispatch(deleteTodo(item.id))}  />
+                    return <Todo key={item.id} editTaskfunc={(id,task) => editTaskfunc(id,task)} task ={item.item} id={item.id} deleteTask = {() => deleteTask(item.id)}  />
                 })
             }
-            </ul>
         </div>
     )
 }

@@ -1,0 +1,33 @@
+.todo-div {
+    background-color: #ffe1e1;
+    width: 100px;
+    padding: 0;
+    display: flex;
+    flex-direction: inherit;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 400px;
+}
+
+.task {
+    width: 300px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 50px;
+    font-weight: 900;
+    font-size: larger;
+    cursor: pointer;
+}
+
+
+.task-text {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: larger;
+}

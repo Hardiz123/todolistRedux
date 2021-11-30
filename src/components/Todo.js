@@ -1,14 +1,15 @@
 import React from 'react'
+import '../css/todoStyle.css'
+
+
 const  Todo = (props) => {
 
-
-
     return (
-        <div>
-            <div onClick={() => props.editTaskfunc(props.id, props.task)} style={{display:'inline-block', marginRight:'5px'}}>
-                <p>{props.task}</p>
+        <div className="todo-div">
+            <div className="task" onClick={() => props.editTaskfunc(props.id, props.task)}>
+                <p className="task-text">{props.task}</p>
             </div>
-            <button onClick={() => props.deleteTask()}>X</button>
+            <button className="delete-btn" onClick={() => props.deleteTask()}>X</button>
         </div>
     )
 }
