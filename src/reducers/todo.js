@@ -2,7 +2,7 @@ const changeTodo = (state = [], action) => {
     switch (action.type) {
         case 'ADD_TODO':
             return [
-                ...state, {item: action.payload, id:state.length+1}
+                ...state, {item: action.payload, id: new Date().getTime()}
             ];
         case 'DELETE_TODO':
            const newList = state.filter((elem) => elem.id !== action.payload);
